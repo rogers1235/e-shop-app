@@ -1,0 +1,13 @@
+.footer {
+  scroll-padding-block-end: 200px;
+  background-color: var(--dark-blue);
+  color: #fff;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  p {
+    color: #fff;
+  }
+}
