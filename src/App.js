@@ -14,6 +14,8 @@ import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import OrderHistory from "./pages/orderHistory/OrderHistory";
 import OrderDetails from "./pages/orderDetails/OrderDetails";
 import ReviewProducts from "./components/reviewProducts/ReviewProducts";
+import NotFound from "./pages/notFound/NotFound";
+import CookieConsent from "react-cookie-consent";
 
 function App() {
   return (
@@ -45,7 +47,22 @@ function App() {
           <Route path="/order-history" element={<OrderHistory />} />
           <Route path="/order-details/:id" element={<OrderDetails />} />
           <Route path="/review-product/:id" element={<ReviewProducts />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent
+          debug={true}
+          location="top"
+          style={{ background: "#000", textAlign: "left" }}
+          buttonStyle={{ color: "#000", background: "#fff", fontSize: "14px" }}
+          buttonText="Accept"
+          expires={365}
+        >
+          Folosim cookie-uri pentru a îți oferi cea mai bună experiență online.
+          Cookie-urile mențin site-ul nostru sigur și de încredere. Ne permit să
+          personalizăm legalzen.ro pentru tine și ne ajută să analizăm modul în
+          care este utilizat site-ul. See our{" "}
+          <a href="/ privacy"> privacy policy for more.</a>
+        </CookieConsent>
         <Footer />
       </BrowserRouter>
     </>

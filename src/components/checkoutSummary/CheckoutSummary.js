@@ -9,6 +9,7 @@ import {
 import Card from "../card/Card";
 import styles from "./CheckoutSummary.module.scss";
 
+
 const CheckoutSummary = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotalAmount = useSelector(selectCartTotalAmount);
@@ -42,6 +43,7 @@ const CheckoutSummary = () => {
                   <p>Quantity: {cartQuantity}</p>
                   <p>Unit price: {price}</p>
                   <p>Set price: {price * cartQuantity}</p>
+                  
                 </Card>
               );
             })}

@@ -1,9 +1,8 @@
-import { doc, getDoc } from "firebase/firestore";
+import styles from "./ProductDetails.module.scss";
+
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { db } from "../../../firebase/config";
-import { toast } from "react-toastify";
-import styles from "./ProductDetails.module.scss";
+
 import spinnerImg from "../../../assets/spinner.jpg";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -32,6 +31,8 @@ const ProductDetails = () => {
     return cart.id === id;
   });
 
+  
+
   useEffect(() => {
     setProduct(document);
   }, [document]);
@@ -40,10 +41,13 @@ const ProductDetails = () => {
     dispatch(ADD_TO_CART(product));
     dispatch(CALCULATE_TOTAL_QUANTITY());
   };
+
   const decreaseCart = (product) => {
     dispatch(DECREASE_CART(product));
     dispatch(CALCULATE_TOTAL_QUANTITY());
   };
+
+  
 
   return (
     <section>
@@ -62,7 +66,7 @@ const ProductDetails = () => {
               </div>
               <div className={styles.content}>
                 <h3>{product.name}</h3>
-                <p className={styles.price}>{`Ron ${product.price}`}</p>
+                <p className={styles.price}>{`$${product.price}`}</p>
                 <p>{product.desc}</p>
                 <p>
                   <b>SKU</b> {product.id}
@@ -70,6 +74,7 @@ const ProductDetails = () => {
                 <p>
                   <b>Brand</b> {product.brand}
                 </p>
+
                 <div className={styles.count}>
                   {isCartAdded < 0 ? null : (
                     <>
@@ -99,6 +104,7 @@ const ProductDetails = () => {
                 </button>
               </div>
             </div>
+            
           </>
         )}
         <Card cardClass={styles.card}>
@@ -119,7 +125,7 @@ const ProductDetails = () => {
                       </span>
                       <br />
                       <span>
-                        <b>by:{userName}</b>
+                        <b>by: {userName}</b>
                       </span>
                     </div>
                   );

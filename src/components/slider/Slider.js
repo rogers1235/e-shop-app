@@ -6,7 +6,7 @@ import "./Slider.scss";
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideLength = sliderData.length;
-  console.log(slideLength);
+  //   console.log(slideLength);
 
   const autoScroll = true;
   let slideInterval;
@@ -15,6 +15,7 @@ const Slider = () => {
   const nextSlide = () => {
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
   };
+
   const prevSlide = () => {
     setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
   };
@@ -23,19 +24,21 @@ const Slider = () => {
     setCurrentSlide(0);
   }, []);
 
-  //const auto = () => {
-  // slideInterval = setInterval(nextSlide, intervalTime);
-  //}
-
+  //   const auto = () => {
+  //     slideInterval = setInterval(nextSlide, intervalTime);
+  //   };
   useEffect(() => {
     if (autoScroll) {
       const auto = () => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         slideInterval = setInterval(nextSlide, intervalTime);
       };
       auto();
     }
     return () => clearInterval(slideInterval);
   }, [currentSlide, slideInterval, autoScroll]);
+
+
 
   return (
     <div className="slider">

@@ -3,15 +3,39 @@ import styles from "./Contact.module.scss";
 import Card from "../../components/card/Card";
 import { FaEnvelope, FaPhoneAlt, FaTwitter } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const Contact = () => {
-  const sendEmail = () => {};
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        "template_9ni46sj",
+        form.current,
+        "4UDhpIqY7hBq8Uu9g"
+      )
+      .then(
+        (result) => {
+          toast.success("Message sent successfully");
+        },
+        (error) => {
+          toast.error(error.text);
+        }
+      );
+    e.target.reset();
+  };
   return (
     <section>
       <div className={`conatiner ${styles.contact}`}>
         <h2>Contact Us</h2>
         <div className={styles.section}>
-          <form onSubmit={sendEmail}>
+          <form ref={form} onSubmit={sendEmail}>
             <Card cardClass={styles.card}>
               <label>Name</label>
               <input

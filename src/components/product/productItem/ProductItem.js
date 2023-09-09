@@ -22,6 +22,7 @@ const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
     dispatch(ADD_TO_CART(product));
     dispatch(CALCULATE_TOTAL_QUANTITY());
   };
+  
 
   return (
     <Card cardClass={grid ? `${styles.grid}` : `${styles.list}`}>

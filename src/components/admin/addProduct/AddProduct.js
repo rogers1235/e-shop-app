@@ -16,10 +16,11 @@ import { selectProducts } from "../../../redux/slice/productSlice";
 import { useSelector } from "react-redux";
 
 const categories = [
-  { id: 1, name: "Laptop" },
-  { id: 2, name: "Electronics" },
-  { id: 3, name: "Fashion" },
-  { id: 4, name: "Phone" },
+  { id: 1, name: "Hârtie copiator " },
+  { id: 2, name: "Instrumente de scris" },
+  { id: 3, name: "Organizare arhivare" },
+  { id: 4, name: "Tehnică de birou" },
+  { id: 5, name: "Accesorii de birou" },
 ];
 
 const initialState = {

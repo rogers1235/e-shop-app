@@ -23,14 +23,18 @@
     align-items: center;
     cursor: pointer;
   }
+
   p {
     margin-left: 1rem;
+
     .page {
       color: var(--color-danger);
     }
   }
 }
+
 .active {
   background-color: var(--color-danger);
   color: #fff;
 }
+
